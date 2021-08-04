@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(aquamarine, rgb(208, 234, 247));
+  background-repeat: no-repeat;
+  height: 100%;
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#currentTime{
+  background-color: blueviolet;
+  color: rgb(231, 228, 141);
+  display: inline-block;
+  position: absolute ;
+  right: 10px; top: 10px; 
+  padding: 5PX;
+  border-radius: 5PX;
+}
+
+#currentTime #time {
+  color:white;
+}
