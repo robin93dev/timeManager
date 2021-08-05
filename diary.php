@@ -1,19 +1,3 @@
-<?php
-function print_title() {
-  if(isset($_GET['id'])){
-    echo $_GET['id'];}
-    else {
-      echo 'welcome';
-    }
-  
-}
-?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +9,7 @@ function print_title() {
  
 </head>
 <body>
+  <!-- 시계 -->
   <div id="currentTime">Today)
     <?php
     //현재 시간을 출력할수 있는 함수? 단, timezone을 세팅해주어야 한다
@@ -33,6 +18,8 @@ function print_title() {
     ?>
     <span id="time"></span>
   </div>
+
+
 
   <header>
     <h1><a href="index.php?">ManageMySelf</a></h1>
@@ -45,25 +32,47 @@ function print_title() {
   </ul>
 </nav>
 
-<article>
-  <h2> <!--제목-->
-    <?php
-   print_title()
-      ?></h2>
+  
+    <div class='CRUD'><a href="diary_create.php" id="create">Create</a>
+    <!-- id가 있으면 update 나타남    -->
+     <?php if(isset($_GET['id'])){ ?>
+      <a href="diary_update.php?id=<?php echo  $_GET['id'] ?>" id="update">Update</a>
+      <form action="diary_delete_process.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $_GET['id']?>">
+        <input type="submit" value="Delete">
+      </form>
+      <?php } ?>
+    </div>
+    
     
 
   <!--본문-->
+  <article>
+
       <?php
-        echo 'main page';
-            
-        ?>
+      if(!isset($_GET['id'])/*id가 없으면*/) {
+        $list = scandir('./diaryLog');
+          $i = 0;
+          while($i < count($list) ){
+            if($list[$i]!== '.'){
+              if($list[$i] !== '..'){
+                echo "<li><a href=\"diary.php?id=$list[$i]\">$list[$i]</a></li>\n";
+                // echo file_get_contents("diaryLog/$list[$i]");
+              }
+            }
+            $i=$i+1;
+          };
+          // id가 있으면
+        } else { 
+          echo 'title : '.$_GET['id'].'<br>';
+          echo 'description : '.file_get_contents('diaryLog/'.$_GET['id']);
+        }
+            ?>
 </article>
 
 <footer>
   Reserved by robin
 </footer>
-
-
 
 <script>
   //시계를 표현해주는 함수

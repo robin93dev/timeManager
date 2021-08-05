@@ -1,19 +1,3 @@
-<?php
-function print_title() {
-  if(isset($_GET['id'])){
-    echo $_GET['id'];}
-    else {
-      echo 'welcome';
-    }
-  
-}
-?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,24 +30,22 @@ function print_title() {
 </nav>
 
 <article>
-  <h2> <!--제목-->
-    <?php
-   print_title()
-      ?></h2>
-    
+  
+    <div class="form">
+      <form action="diary_create_process.php" method="POST">
+            <p><input type="text" name="title" placeholder='Title'></p>
+            <p><textarea name="description"  rows="10" cols="100" placeholder="description"></textarea></p>
+            <p><input type="submit"></p>
+            </form>
+    </div>
 
-  <!--본문-->
-      <?php
-        echo 'main page';
-            
-        ?>
+ 
+     
 </article>
 
 <footer>
   Reserved by robin
 </footer>
-
-
 
 <script>
   //시계를 표현해주는 함수
