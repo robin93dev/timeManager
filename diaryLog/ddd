@@ -1,0 +1,4 @@
+ <script>
+alert('hi');
+location.href='https://www.naver.com';
+</script>

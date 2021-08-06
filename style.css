@@ -30,21 +30,54 @@ body {
 
 header {
   background-color: blueviolet;
-  color: white;
+  
   border-radius: 10px;
   display: inline-block;
   padding-right: 10px;  
   padding-left: 10px;
-
+  font-style: italic;
+  
+      height: 100%;
+      background: linear-gradient(45deg,rgb(100, 216, 170),rgb(64, 17, 218),purple,blueviolet,rgb(95, 57, 221),blue,rgb(22, 105, 140));
+      background-size: 1000% 100%; 
+      animation: gradient 16s linear infinite;
+      animation-direction: alternate;
 }
+    @keyframes gradient {
+      0% {background-position: 0%}
+      100% {background-position: 100%}
+    }
+  
+
+
+header h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 header a {
   color: white;
+  font-weight: 800; /*a태그에만 적용*/
+  line-height: 0.1;
+  font-family: Arial, "Open Sans", "돋움", dotum, sans-serif;
+
 }
 
 nav {
   background-color:rgb(72, 134, 184,0.8);
   display: block;
   border-radius: 10px;
+  height: 100%;
+  background: linear-gradient(90deg,rgb(100, 216, 170),rgb(162, 195, 204),rgb(174, 176, 220),rgb(180, 228, 219),rgb(176, 217, 226),rgb(171, 240, 204),rgb(180, 232, 240));
+  background-size: 1000% 100%; 
+  animation: gradient 16s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient {
+  0% {background-position: 0%}
+  100% {background-position: 100%}
+
+  
 }
 
 nav ul {
@@ -146,6 +179,7 @@ a:hover{
   padding: 5PX;
   border-radius: 5PX;
   font-weight:bold;
+  
 }
 
 #currentTime #time {
@@ -153,8 +187,27 @@ a:hover{
   font-weight: lighter;
 }
 
+#nightDay {
+  display: inline-block;
+  background-color: blueviolet;
+  position: absolute;
+  right: 0px;
+  top: 25px;
+  border: 0;
+  color: white;
+  font-size: medium;
+  border-radius: 5px;
+}
+
 footer {
   position:absolute;
-  right: 30px;
-  bottom:10px;
+  
+  bottom:0px;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(127, 202, 255,0.1);
+  border-radius: 10px;
+  text-align:right;
+  color: lightcoral;
+  right: 10px;
 }

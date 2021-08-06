@@ -12,15 +12,17 @@
  
 </head>
 <body>
-  <div id="currentTime">Today)
-    <?php
-    //현재 시간을 출력할수 있는 함수? 단, timezone을 세팅해주어야 한다
-     date_default_timezone_set('Asia/Seoul');
-     echo date("Y-m-d");
-    ?>
-    <span id="time"></span>
+  <div class="setting">
+    <div id="currentTime">Today)
+      <?php
+      //현재 시간을 출력할수 있는 함수? 단, timezone을 세팅해주어야 한다
+       date_default_timezone_set('Asia/Seoul');
+       echo date("Y-m-d");
+      ?>
+      <span id="time"></span>
+      <button id="nightDay">야간모드</button>
+    </div>
   </div>
-  <button id="nightDay">야간모드</button>
 
   <header>
     <h1><a href="index.php?">ManageMySelf</a></h1>

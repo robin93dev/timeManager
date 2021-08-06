@@ -1,4 +1,4 @@
 <?php
-unlink('diaryLog/'.$_POST['id']);
+unlink('diaryLog/'.$_POST['hello']);
 header('Location: diary.php');
 ?>

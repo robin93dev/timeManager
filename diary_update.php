@@ -4,7 +4,7 @@ require('view/top.php');
 
 
 <article>
-  
+    <!-- update-->
     <div class="form">
       <form action="diary_update_process.php" method="POST">
             <input type="hidden" name="oldTitle" value="<?php echo $_GET['id']?>">
