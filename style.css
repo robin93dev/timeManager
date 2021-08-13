@@ -36,6 +36,7 @@ header {
   padding-right: 10px;  
   padding-left: 10px;
   font-style: italic;
+  transition: all 1s;
   
       height: 100%;
       background: linear-gradient(45deg,rgb(100, 216, 170),rgb(64, 17, 218),purple,blueviolet,rgb(95, 57, 221),blue,rgb(22, 105, 140));
@@ -47,7 +48,19 @@ header {
       0% {background-position: 0%}
       100% {background-position: 100%}
     }
+    
   
+
+
+header:hover {
+  width: 19rem;
+  transition: all 1s;
+  content: 'dd';
+    
+}
+header:hover after {
+  content: 'ddd';
+}
 
 
 header h1 {
@@ -64,26 +77,27 @@ header a {
 }
 
 nav {
-  background-color:rgb(72, 134, 184,0.8);
-  display: block;
+  background-color:rgb(100, 177, 212,0.5);
+  display: inline-block;
   border-radius: 10px;
   height: 100%;
-  background: linear-gradient(90deg,rgb(100, 216, 170),rgb(162, 195, 204),rgb(174, 176, 220),rgb(180, 228, 219),rgb(176, 217, 226),rgb(171, 240, 204),rgb(180, 232, 240));
-  background-size: 1000% 100%; 
-  animation: gradient 16s linear infinite;
-  animation-direction: alternate;
-}
-@keyframes gradient {
-  0% {background-position: 0%}
-  100% {background-position: 100%}
+  margin: 10px;
+  transition: all 1s;
 
   
+}
+
+nav:hover {
+  transition: all 1s;
+  background-color: rgb(77, 177, 152);
+  padding-right:600px;
 }
 
 nav ul {
   list-style-type: none;
   display: flex;
-  padding-left: 20px;
+  padding-inline-start: 0px;
+  
 
 }
 
@@ -92,7 +106,7 @@ nav ul li {
 }
 
 article  {
-  margin: 20px;
+  margin: 10px;
   border-radius: 10px;
   height: 300px;
   background-color: rgb(255, 255, 255,0.5);

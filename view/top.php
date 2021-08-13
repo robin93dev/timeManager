@@ -27,7 +27,7 @@
   <header>
     <h1><a href="index.php?">ManageMySelf</a></h1>
   </header>
-
+<br>
 <nav>
   <ul>
     <li><a href="diary.php?">일기장</a></li>

@@ -27,9 +27,9 @@ require('view/top.php');
           $i = 0;
           while($i < count($list) ){
             $title = htmlspecialchars($list[$i]);
-            if($title!== '.'){
+            if($title !== '.'){
               if($title !== '..'){
-                echo "<li><a href=\"diary.php?id=$title\">$title</a></li>\n";
+                echo "<li><a href=\"diary.php?id=$title\">$title</a></li>";
                 // echo file_get_contents("diaryLog/$list[$i]");
               }
             }
