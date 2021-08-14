@@ -1,18 +1,37 @@
 <?php
 require('view/top.php');
+$conn = mysqli_connect('localhost', 'root', 'foaldks102', 'timemanage');
+$sql = "SELECT * FROM topic";
+$result = mysqli_query($conn, $sql);
+$list = '';
+while($row = mysqli_fetch_array($result)){
+  $list = $list."<li><a href=\"diary.php?id={$row['id']}\" > {$row['title']}</a></li>";
+}
+
+$update="";
+$delete="";
+$row['title']="";
+$row['description']="";
+$row['created']="";
 ?>
 
-  
+    
     <div class='CRUD'><a href="diary_create.php" id="create">Create</a>
     <!-- id가 있으면 update,delete 나타남    -->
-     <?php if(isset($_GET['id'])){ ?>
+     <?php if(isset($_GET['id'])){ 
+        $sql = "SELECT * FROM topic WHERE id={$_GET['id']}";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result); 
+        $update = '<a href="diary_update.php?id='.$_GET['id'].'">update</a>';
+        $delete = '<form action="diary_delete_process.php" method="post">
+        <input type="hidden" name="id" value="'.$_GET['id'].'">
+        <input type="submit" value="delete">
+        </form>';
+        ?>
       <!-- update-->
-      <a href="diary_update.php?id=<?php echo  $_GET['id'] ?>" id="update">Update</a>
+     <?=$update?>
       <!-- delete-->
-      <form action="diary_delete_process.php" method="post">
-        <input type="hidden" name="hello" value="<?php echo $_GET['id']?>">
-        <input type="submit" value="Delete">
-      </form>
+     <?=$delete?>
       <?php } ?>
     </div>
     
@@ -21,28 +40,16 @@ require('view/top.php');
   <!--본문-->
   <article>
           <!-- list 출력 -->
-      <?php
-      if(!isset($_GET['id'])/*id가 없으면*/) {
-        $list = scandir('./diaryLog');
-          $i = 0;
-          while($i < count($list) ){
-            $title = htmlspecialchars($list[$i]);
-            if($title !== '.'){
-              if($title !== '..'){
-                echo "<li><a href=\"diary.php?id=$title\">$title</a></li>";
-                // echo file_get_contents("diaryLog/$list[$i]");
-              }
-            }
-            $i=$i+1;
-          };
-          // id가 있으면
-        } else { 
-          echo htmlspecialchars('title : '.$_GET['id']); //XSS 방지
-          ?><br>
-          <?php
-          echo htmlspecialchars('description : '.file_get_contents('diaryLog/'.$_GET['id'])); //XSS방지
-        }
-            ?>
+      <?= $list?>
+
+      
+    <h1><?=$row['title']?></h1>
+    <?=$row['description']?>
+    <h6> <?=$row['created']?></h6>
+    
+     
+      
+   
 </article>
 
 <?php

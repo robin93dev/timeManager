@@ -1,5 +1,9 @@
 <?php
 require('view/top.php');
+$conn = mysqli_connect('localhost', 'root', 'foaldks102', 'timemanage');
+$sql = "SELECT * FROM topic WHERE id={$_GET['id']}";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result); 
 ?>
 
 
@@ -7,9 +11,9 @@ require('view/top.php');
     <!-- update-->
     <div class="form">
       <form action="diary_update_process.php" method="POST">
-            <input type="hidden" name="oldTitle" value="<?php echo $_GET['id']?>">
-            <p><input type="text" name="newTitle" placeholder='Title' value="<?php echo $_GET['id']?>"></p>
-            <p><textarea name="description"> <?php echo file_get_contents('diaryLog/'.$_GET['id']) ?></textarea></p>
+            <input type="hidden" name="id" value="<?php echo $_GET['id']?>">
+            <p><input type="text" name="title" placeholder='Title' value="<?=$row['title']?>"></p>
+            <p><textarea name="description">  <?=$row['description']?></textarea></p>
             <p><input type="submit"></p>
             </form>
     </div>

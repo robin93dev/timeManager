@@ -1,4 +1,6 @@
 <?php
-unlink('diaryLog/'.$_POST['hello']);
-header('Location: diary.php');
+$conn = mysqli_connect('localhost', 'root', 'foaldks102', 'timemanage');
+$sql = "DELETE  FROM topic WHERE id={$_POST['id']}";
+$result = mysqli_query($conn, $sql);
+header('location:diary.php');
 ?>
